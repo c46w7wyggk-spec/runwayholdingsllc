@@ -122,6 +122,21 @@
   .value strong { display: block; font-size: 16px; margin-bottom: 4px; }
   .value span { color: var(--muted); font-size: 14.5px; }
 
+  /* Team */
+  .team { margin-top: 72px; }
+  .team-title { font-size: 12px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+  .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+  .person { border: 1px solid var(--line); background: var(--bg); border-radius: var(--radius); padding: 28px; }
+  .avatar {
+    width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center;
+    font-weight: 700; font-size: 17px; color: var(--bg); margin-bottom: 18px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  }
+  .person h3 { font-size: 20px; letter-spacing: -.01em; }
+  .person .role { font-size: 13px; color: var(--accent); font-weight: 600; margin-top: 2px; }
+  .person p { color: var(--muted); font-size: 15px; margin-top: 12px; }
+  .about .person p { margin-top: 12px; }
+
   /* Contact */
   .contact-box {
     border: 1px solid var(--line); border-radius: 24px; padding: 56px 40px; text-align: center;
@@ -139,7 +154,7 @@
 
   @media (max-width: 760px) {
     .links { gap: 18px; }
-    .cards, .about-grid { grid-template-columns: 1fr; }
+    .cards, .about-grid, .team-grid { grid-template-columns: 1fr; }
     .about-grid { gap: 36px; }
     .hero { padding: 80px 0 90px; }
     section { padding: 72px 0; }
@@ -232,6 +247,24 @@
         <div class="value"><strong>Build with intent</strong><span>Every feature earns its place.</span></div>
         <div class="value"><strong>Keep it simple</strong><span>Clean design and clear purpose.</span></div>
         <div class="value"><strong>Move forward</strong><span>Ship, learn, and improve continuously.</span></div>
+      </div>
+    </div>
+
+    <div class="wrap team">
+      <div class="team-title">Leadership</div>
+      <div class="team-grid">
+        <article class="person">
+          <div class="avatar" aria-hidden="true">JD</div>
+          <h3>Josh Deniston</h3>
+          <div class="role">Co-founder</div>
+          <p>Josh is a student at the University of Austin (UATX) and co-founder of Runway Holdings LLC. An entrepreneur and builder, he has launched ventures from an early age, driven by a commitment to turning ideas into practical solutions for his generation. He divides his time between Colorado and Austin, where he continues to pursue new ventures alongside his studies.</p>
+        </article>
+        <article class="person">
+          <div class="avatar" aria-hidden="true">AG</div>
+          <h3>Aaron Gordy</h3>
+          <div class="role">Co-founder &amp; CFO</div>
+          <p>Aaron is a co-founder and CFO at Runway, where he works on making personal finance feel less intimidating. He’s a student by day, future airline pilot by trajectory, and works on cars in his spare time. Building a company while learning to fly is his kind of challenge.</p>
+        </article>
       </div>
     </div>
   </section>
