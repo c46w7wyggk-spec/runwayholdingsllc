@@ -102,7 +102,7 @@
     width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; margin-bottom: 22px;
     background: rgba(96,165,250,.12); border: 1px solid rgba(96,165,250,.25);
   }
-  .card:nth-child(2) .icon { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.28); }
+  .card:nth-child(1) .icon { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.28); }
   .card .icon svg { width: 24px; height: 24px; }
   .card h3 { font-size: 22px; letter-spacing: -.015em; }
   .card p { color: var(--muted); margin-top: 10px; font-size: 15.5px; }
@@ -122,13 +122,13 @@
   .more:hover { text-decoration: underline; }
   .card-link:hover { color: var(--accent-2); }
 
-  .teaser { grid-column: 1 / -1; border-style: dashed; border-color: #2c3a66;
+  .teaser { border-style: dashed; border-color: #2c3a66;
     background: radial-gradient(600px 160px at 15% 0%, rgba(96,165,250,.14), transparent 70%),
                 radial-gradient(500px 160px at 90% 100%, rgba(167,139,250,.14), transparent 70%), var(--card); }
-  .teaser .icon { margin-bottom: 0; background: rgba(232,236,246,.08); border-color: rgba(232,236,246,.2); flex: none; }
-  .teaser-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
-  .teaser-text { flex: 1; min-width: 240px; }
-  .teaser .badge { margin-top: 0; }
+  .card.teaser .icon { margin-bottom: 22px; background: rgba(232,236,246,.08); border-color: rgba(232,236,246,.2); }
+  .teaser-inner { display: flex; flex-direction: column; align-items: flex-start; }
+  .teaser-text { width: 100%; }
+  .teaser .badge { margin-top: 24px; }
   .redacted { display: flex; gap: 8px; margin-top: 16px; }
   .redacted span { height: 10px; border-radius: 5px; width: 90px; background: linear-gradient(90deg, var(--line) 0%, #2c3a66 50%, var(--line) 100%); background-size: 200% 100%; animation: shimmer 2.6s linear infinite; }
   .redacted span:nth-child(2) { width: 60px; animation-delay: -.8s; }
@@ -240,15 +240,6 @@
       <p class="sub">Built and run by Runway Holdings.</p>
 
       <div class="cards">
-        <article class="card">
-          <div class="icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg>
-          </div>
-          <h3>Runway Finance</h3>
-          <p>A personal finance app that shows you where your money is and where it's going.</p>
-          <span class="badge"><span class="dot"></span>Coming soon</span>
-        </article>
-
         <article class="card">
           <div class="icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r=".5" fill="#a78bfa"/></svg>
