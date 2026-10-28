@@ -122,6 +122,20 @@
   .more:hover { text-decoration: underline; }
   .card-link:hover { color: var(--accent-2); }
 
+  .teaser { grid-column: 1 / -1; border-style: dashed; border-color: #2c3a66;
+    background: radial-gradient(600px 160px at 15% 0%, rgba(96,165,250,.14), transparent 70%),
+                radial-gradient(500px 160px at 90% 100%, rgba(167,139,250,.14), transparent 70%), var(--card); }
+  .teaser .icon { margin-bottom: 0; background: rgba(232,236,246,.08); border-color: rgba(232,236,246,.2); flex: none; }
+  .teaser-inner { display: flex; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .teaser-text { flex: 1; min-width: 240px; }
+  .teaser .badge { margin-top: 0; }
+  .redacted { display: flex; gap: 8px; margin-top: 16px; }
+  .redacted span { height: 10px; border-radius: 5px; width: 90px; background: linear-gradient(90deg, var(--line) 0%, #2c3a66 50%, var(--line) 100%); background-size: 200% 100%; animation: shimmer 2.6s linear infinite; }
+  .redacted span:nth-child(2) { width: 60px; animation-delay: -.8s; }
+  .redacted span:nth-child(3) { width: 130px; animation-delay: -1.6s; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+  @media (prefers-reduced-motion: reduce) { .redacted span, .dot { animation: none; } }
+
   /* About */
   .about { background: var(--bg-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
   .about-grid { display: grid; grid-template-columns: 1fr; gap: 56px; align-items: start; }
@@ -223,7 +237,7 @@
   <section id="products">
     <div class="wrap">
       <h2>Our products</h2>
-      <p class="sub">Both are built and run by Runway Holdings.</p>
+      <p class="sub">Built and run by Runway Holdings.</p>
 
       <div class="cards">
         <article class="card">
@@ -242,6 +256,20 @@
           <h3>Give It A Shot</h3>
           <p>An economics simulation for high school classes. Students play as president and see how their policy choices play out.</p>
           <span class="badge beta"><span class="dot"></span>Now in teacher beta</span>
+        </article>
+
+        <article class="card teaser" aria-label="Something big is coming">
+          <div class="teaser-inner">
+            <div class="icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#e8ecf6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>
+            </div>
+            <div class="teaser-text">
+              <h3>Something big is coming.</h3>
+              <p>Our next project is still under wraps.</p>
+              <div class="redacted" aria-hidden="true"><span></span><span></span><span></span></div>
+            </div>
+            <span class="badge"><span class="dot"></span>Coming soon</span>
+          </div>
         </article>
       </div>
     </div>
