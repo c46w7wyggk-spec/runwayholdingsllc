@@ -85,6 +85,8 @@
   .code { font-family: var(--mono); font-size: 15px; color: var(--accent); padding-top: 3px; }
   .proj h3 { font-size: 28px; font-weight: 700; }
   .proj p { color: var(--muted); margin-top: 8px; max-width: 56ch; }
+  .departs { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+  .tminus { color: var(--text); }
   .notify { display: inline-block; margin-top: 12px; font-weight: 600; font-size: 15px; color: var(--accent); border-bottom: 1px solid transparent; }
   .notify:hover { border-bottom-color: var(--accent); }
   .status { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
@@ -218,11 +220,12 @@
           <div class="proj" role="cell">
             <h3><span class="redact" aria-hidden="true"></span><span class="sr">Name withheld</span></h3>
             <p>Something big is coming. Our next project is still under wraps.</p>
+            <p class="departs"><span data-dep-date>Departs 18 Mar 2027</span><span class="tminus" data-tminus>T&ndash;119 days</span></p>
             <a class="notify" href="mailto:hello@runwayholdingsllc.com?subject=Notify%20me%20about%20RH-02">Get notified &rarr;</a>
           </div>
           <div class="status" role="cell">
-            <span class="tag outline">Scheduled</span>
-            <small>Coming soon</small>
+            <span class="tag outline" data-dep-tag>Scheduled</span>
+            <small data-dep-note>Coming soon</small>
           </div>
         </div>
       </div>
@@ -278,6 +281,23 @@
   </div>
 </footer>
 
+<script>
+  // RH-02 countdown to launch day (18 March 2027, viewer's local time)
+  (function () {
+    var launch = new Date(2027, 2, 18);
+    var days = Math.ceil((launch - new Date()) / 86400000);
+    var t = document.querySelector('[data-tminus]');
+    if (!t) return;
+    if (days > 1) { t.textContent = 'T\u2013' + days + ' days'; return; }
+    if (days === 1) { t.textContent = 'T\u20131 day'; return; }
+    t.textContent = days === 0 ? 'Launch day' : 'Launched';
+    document.querySelector('[data-dep-date]').textContent = 'Departed 18 Mar 2027';
+    var tag = document.querySelector('[data-dep-tag]');
+    tag.textContent = 'Launched';
+    tag.className = 'tag solid';
+    document.querySelector('[data-dep-note]').textContent = '18 Mar 2027';
+  })();
+</script>
 <script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
 <script defer src="/_vercel/insights/script.js"></script>
